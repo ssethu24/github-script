@@ -5369,7 +5369,11 @@ function callAsyncFunction(args, source) {
     return fn(...Object.values(args));
 }
 
+// EXTERNAL MODULE: ./node_modules/node-fetch/lib/index.js
+var lib = __webpack_require__(467);
+
 // CONCATENATED MODULE: ./src/main.ts
+
 
 
 
@@ -5391,7 +5395,7 @@ async function main() {
     const github = Object(lib_github.getOctokit)(token, opts);
     const script = Object(core.getInput)('script', { required: true });
     // Using property/value shorthand on `require` (e.g. `{require}`) causes compilation errors.
-    const result = await callAsyncFunction({ require: __webpack_require__(875), github, context: lib_github.context, core: core, io: io }, script);
+    const result = await callAsyncFunction({ require: __webpack_require__(875), github, context: lib_github.context, core: core, io: io, fetch: lib }, script);
     let encoding = Object(core.getInput)('result-encoding');
     encoding = encoding ? encoding : 'json';
     let output;

@@ -2,6 +2,7 @@ import * as core from '@actions/core'
 import {context, getOctokit} from '@actions/github'
 import * as io from '@actions/io'
 import {callAsyncFunction} from './async-function'
+import * as fetch from 'node-fetch'
 
 process.on('unhandledRejection', handleError)
 main().catch(handleError)
@@ -28,7 +29,7 @@ async function main(): Promise<void> {
 
   // Using property/value shorthand on `require` (e.g. `{require}`) causes compilation errors.
   const result = await callAsyncFunction(
-    {require: require, github, context, core, io},
+    {require: require, github, context, core, io, fetch},
     script
   )
 

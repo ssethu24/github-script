@@ -2,6 +2,7 @@ import * as core from '@actions/core'
 import {Context} from '@actions/github/lib/context'
 import {GitHub} from '@actions/github/lib/utils'
 import * as io from '@actions/io'
+import * as fetch from 'node-fetch'
 
 const AsyncFunction = Object.getPrototypeOf(async () => null).constructor
 
@@ -11,6 +12,7 @@ type AsyncFunctionArguments = {
   github: InstanceType<typeof GitHub>
   io: typeof io
   require: NodeRequire
+  fetch: typeof fetch
 }
 
 export function callAsyncFunction<T>(
