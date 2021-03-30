@@ -16,10 +16,10 @@ inputs:
     description: docker username
     required: true
   docker-password:
-    description: docker username
+    description: docker password
     required: true
-  slack-release-channel-url:
-    description: docker username
+  slack-channel-url:
+    description: slack channel url
     required: true
   debug:
     description: Whether to tell the GitHub client to log details of its requests
